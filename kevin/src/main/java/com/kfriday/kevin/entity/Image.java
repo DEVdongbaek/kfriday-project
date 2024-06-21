@@ -1,6 +1,6 @@
 package com.kfriday.kevin.entity;
 
-import com.kfriday.kevin.dto.PackageDTO;
+import com.kfriday.kevin.dto.ImageDTO;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -24,8 +24,11 @@ public class Image extends Common {
     @Enumerated(EnumType.STRING)
     private ImageType type;
 
-    public static Image of(PackageDTO packageDTO){
+    public static Image of(Package packageEntity, ImageDTO.RequestDTO requestDTO){
         return Image.builder()
+                .packageId(packageEntity)
+                .filename(requestDTO.getFilename())
+                .type(requestDTO.getType())
                 .build();
     }
 
