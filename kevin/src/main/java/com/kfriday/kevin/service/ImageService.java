@@ -5,14 +5,12 @@ import com.kfriday.kevin.dto.PackageEventDTO;
 import com.kfriday.kevin.entity.Image;
 import com.kfriday.kevin.repository.ImageJpaRepository;
 import lombok.RequiredArgsConstructor;
-import lombok.extern.log4j.Log4j;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
 @Service
-@Log4j
 @RequiredArgsConstructor
 public class ImageService {
 

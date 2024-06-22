@@ -19,14 +19,14 @@ public class Image extends Common {
 
     @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @JoinColumn(name = "package_id")
-    private Package packageId;
+    private Package packageEntity;
 
     @Enumerated(EnumType.STRING)
     private ImageType type;
 
     public static Image of(Package packageEntity, ImageDTO.RequestDTO requestDTO){
         return Image.builder()
-                .packageId(packageEntity)
+                .packageEntity(packageEntity)
                 .filename(requestDTO.getFilename())
                 .type(requestDTO.getType())
                 .build();

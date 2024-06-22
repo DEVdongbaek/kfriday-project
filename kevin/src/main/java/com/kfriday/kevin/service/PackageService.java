@@ -7,7 +7,6 @@ import com.kfriday.kevin.entity.Package;
 import com.kfriday.kevin.exception.customException.DoesNotExistPackageException;
 import com.kfriday.kevin.repository.PackageJpaRepository;
 import lombok.RequiredArgsConstructor;
-import lombok.extern.log4j.Log4j;
 import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
@@ -19,7 +18,6 @@ import java.util.Optional;
 import static com.kfriday.kevin.exception.MessageCode.DOES_NOT_EXIST_PACKAGE;
 
 @Service
-@Log4j
 @RequiredArgsConstructor
 public class PackageService {
 

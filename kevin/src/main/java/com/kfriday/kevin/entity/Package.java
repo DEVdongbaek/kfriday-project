@@ -28,7 +28,6 @@ public class Package extends Common {
         }
     }
 
-
     public static Package of(PackageDTO.RequestDTO requestDTO) {
         return Package.builder()
                 .trackingNo(requestDTO.getTrackingNo())

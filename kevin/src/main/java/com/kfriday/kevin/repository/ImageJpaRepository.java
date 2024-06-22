@@ -10,9 +10,9 @@ public interface ImageJpaRepository extends JpaRepository<Image, Long> {
 
     @Query("select i " +
             "from Image i " +
-            "where i.packageId.id = :packageId " +
-            "order by i.createdAt desc " +
-            "join fetch i.packageId ")
+            "join fetch i.packageEntity " +
+            "where i.packageEntity.id = :packageId " +
+            "order by i.createdAt desc")
     List<Image> findImagesByPackageId(Long packageId);
 
 }
