@@ -15,7 +15,7 @@ public class PackageRestController {
 
     private final PackageService packageService;
 
-    @PostMapping("/daily")
+    @PostMapping("/package")
     @ResponseStatus(HttpStatus.CREATED)
     public ApiResponse<?> savePackage(@Valid @RequestBody final PackageDTO.RequestDTO requestDTO) {
 
@@ -25,7 +25,7 @@ public class PackageRestController {
     }
 
 
-    @GetMapping("/daily/{id}")
+    @GetMapping("/package/{id}")
     @ResponseStatus(HttpStatus.OK)
     public ApiResponse<PackageDTO.ResponseDTO> getPackage(@PathVariable Long id) {
 
@@ -35,7 +35,7 @@ public class PackageRestController {
     }
 
 
-    @GetMapping("/dailies/{offset}/{limit}")
+    @GetMapping("/packages/{offset}/{limit}")
     @ResponseStatus(HttpStatus.OK)
     public ApiResponse<PackageDTO.ResponseDTOs> getPackages(@PathVariable int offset, @PathVariable int limit) {
 
@@ -45,7 +45,7 @@ public class PackageRestController {
     }
 
 
-    @PutMapping("/daily/{id}")
+    @PutMapping("/package/{id}")
     @ResponseStatus(HttpStatus.OK)
     public ApiResponse<?> updatePackage(@PathVariable Long id, @Valid @RequestBody final PackageDTO.UpdateReqDTO requestDTO) {
 

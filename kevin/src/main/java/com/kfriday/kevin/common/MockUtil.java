@@ -22,6 +22,17 @@ public class MockUtil {
         return new PackageDTO.RequestDTO(1L, images);
     }
 
+    public static List<ImageDTO.RequestDTO> getImageDtoRequestDtos(){
+
+        List<ImageDTO.RequestDTO> images = new ArrayList<>();
+
+        for (int i = 0; i < 3; i++) {
+            images.add(getImageDtoRequestDto());
+        }
+
+        return images;
+    }
+
     public static List<ImageDTO.ResponseDTO> getImageDtoResponseDtos(){
 
         List<ImageDTO.ResponseDTO> images = new ArrayList<>();

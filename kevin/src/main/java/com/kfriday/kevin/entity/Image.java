@@ -17,7 +17,7 @@ public class Image extends Common {
 
     private String filename;
 
-    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @ManyToOne(cascade = CascadeType.REMOVE, fetch = FetchType.LAZY)
     @JoinColumn(name = "package_id")
     private Package packageEntity;
 
