@@ -331,7 +331,7 @@ Custom Exception 객체를 생성하여 `RuntimeExcption`으로 500 에러 만�
 
 ### 6️⃣ Swagger를 사용한 API 문서화를 하였습니다.
 
-https://github.com/DEVdongbaek/kfriday-project/assets/102592414/12804d7b-2b89-47de-b9cb-727aab3d409c
+<img width="1512" alt="스크린샷 2024-06-25 오후 12 26 02" src="https://github.com/DEVdongbaek/kfriday-project/assets/102592414/953f4d44-8666-434b-b2d0-94db5e7edfa8">
 
 http://localhost:8080/swagger-ui/index.html#/
 
