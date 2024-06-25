@@ -35,7 +35,7 @@ public class PackageRestControllerTest {
     @Autowired
     private PackageRestController packageRestController;
 
-    private static final String urlPrefix = "/api/v1";
+    private static final String URL_PREFIX = "/api/v1";
 
     @BeforeEach
     public void set_up() {
@@ -57,7 +57,7 @@ public class PackageRestControllerTest {
 
         // when
         ResultActions resultActions = mvc.perform(
-                post(urlPrefix + "/package")
+                post(URL_PREFIX + "/package")
                         .content(requestBody)
                         .contentType(MediaType.APPLICATION_JSON_VALUE)
         );
@@ -79,7 +79,7 @@ public class PackageRestControllerTest {
 
         // when
         ResultActions resultActions = mvc.perform(
-                get(urlPrefix+ "/package/" + fakeId)
+                get(URL_PREFIX + "/package/" + fakeId)
         );
 
         // eye
@@ -103,7 +103,7 @@ public class PackageRestControllerTest {
         
         // when
         ResultActions resultActions = mvc.perform(
-                get(urlPrefix+ "/packages/" + fakeOffset + "/" + fakeLimit)
+                get(URL_PREFIX + "/packages/" + fakeOffset + "/" + fakeLimit)
         );
 
         // eye
@@ -115,6 +115,4 @@ public class PackageRestControllerTest {
         resultActions.andExpect(jsonPath("$.data.responseDTOS[0].id").value(5));
         resultActions.andExpect(jsonPath("$.data.responseDTOS[1].id").value(4));
     }
-
-
 }

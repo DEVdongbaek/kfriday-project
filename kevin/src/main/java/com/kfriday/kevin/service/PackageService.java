@@ -32,7 +32,7 @@ public class PackageService {
 
         Package packageEntity = packageJpaRepository.save(Package.of(requestDTO));
 
-        eventPublisher.publishEvent(PackageEventDTO.of(packageEntity, requestDTO.getImages()));
+        eventPublisher.publishEvent(PackageEventDTO.of(packageEntity, requestDTO.getImages())); // Service간 강 결합을 제거하기 위한 Event Driven 방식
 
     }
 
@@ -42,7 +42,7 @@ public class PackageService {
         Optional<Package> packageOp = packageJpaRepository.findById(id);
 
         if (packageOp.isEmpty()) {
-            throw new DoesNotExistPackageException(DOES_NOT_EXIST_PACKAGE.getMessage());
+            throw new DoesNotExistPackageException(DOES_NOT_EXIST_PACKAGE.getMessage()); // 예외 상황 발생시 커스텀 Exception 생성 및 throw
         }
 
         Package packageEntity = packageOp.get();
@@ -53,9 +53,9 @@ public class PackageService {
 
     }
 
-    @Transactional(readOnly = true)
+    @Transactional(readOnly = true) // readOnly 옵션 사용으로 더티 체킹등을 통한 리소스 사용 방지
     public PackageDTO.ResponseDTOs getPackages(int offset, int limit) {
-        List<Package> packages = packageJpaRepository.findPackagesWithOffsetAndLimit(PageRequest.of(offset, limit));
+        List<Package> packages = packageJpaRepository.findPackagesWithOffsetAndLimit(PageRequest.of(offset, limit)); // Pagination을 위해 PageRequest 객체 전달
 
         return PackageDTO.ResponseDTOs.of(
                 packages.stream().map(
@@ -70,7 +70,7 @@ public class PackageService {
         Optional<Package> packageOp = packageJpaRepository.findById(id);
 
         if (packageOp.isEmpty()) {
-            throw new DoesNotExistPackageException(DOES_NOT_EXIST_PACKAGE.getMessage());
+            throw new DoesNotExistPackageException(DOES_NOT_EXIST_PACKAGE.getMessage()); // 예외 상황 발생시 커스텀 Exception 생성 및 throw
         }
 
         Package packageEntity = packageOp.get();
@@ -85,7 +85,7 @@ public class PackageService {
         Optional<Package> packageOp = packageJpaRepository.findById(id);
 
         if (packageOp.isEmpty()) {
-            throw new DoesNotExistPackageException(DOES_NOT_EXIST_PACKAGE.getMessage());
+            throw new DoesNotExistPackageException(DOES_NOT_EXIST_PACKAGE.getMessage()); // 예외 상황 발생시 커스텀 Exception 생성 및 throw
         }
 
         Package packageEntity = packageOp.get();

@@ -5,7 +5,7 @@ import jakarta.persistence.*;
 import lombok.*;
 
 @Entity
-@Table(indexes = @Index(name = "idx_createdAt", columnList = "createdAt"))
+@Table(indexes = @Index(name = "idx_createdAt", columnList = "createdAt")) // 인덱스 설정으로 조회시 성능 향상
 @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @AllArgsConstructor

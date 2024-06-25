@@ -9,7 +9,7 @@ import com.kfriday.kevin.entity.Package;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MockUtil {
+public class MockUtil { // 테스트간 Mock 객체 생성시 사용되는 Util 클래스
 
     public static PackageDTO.RequestDTO getPackageDtoRequestDTO(){
 

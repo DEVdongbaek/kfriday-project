@@ -51,3 +51,7 @@ j
 :kevin/src/main/java/com/kfriday/kevin/common/MockUtil.java,6/1/61fc6896e022b110c19487d5b159c428d301eb3f
 
 Okevin/src/test/java/com/kfriday/kevin/controller/PackageRestControllerTest.java,b/a/ba02364c8b2f7bef982434fbb7b3989988740333
+p
+@kevin/src/test/java/com/kfriday/kevin/KevinApplicationTests.java,7/3/737d226ae43945d76a6d3b9e6f66f7312e3e5007
+=
+kevin/gradlew,6/d/6d851a26d0497e892fe30d7a00f33cb48524977a

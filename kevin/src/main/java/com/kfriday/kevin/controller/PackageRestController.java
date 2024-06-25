@@ -9,7 +9,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/api/v1")
+@RequestMapping("/api/v1") // API version Prefix
 @RequiredArgsConstructor
 public class PackageRestController {
 
@@ -17,11 +17,11 @@ public class PackageRestController {
 
     @PostMapping("/package")
     @ResponseStatus(HttpStatus.CREATED)
-    public ApiResponse<?> savePackage(@Valid @RequestBody final PackageDTO.RequestDTO requestDTO) {
+    public ApiResponse<?> savePackage(@Valid @RequestBody final PackageDTO.RequestDTO requestDTO) { // @Valid를 이용한 유효성 검증
 
         packageService.savePackage(requestDTO);
 
-        return ApiResponse.createSuccessWithNoContent();
+        return ApiResponse.createSuccessWithNoContent(); // 공통 API를 반환하기 위한 ApiResponse 객체 사용
     }
 
 
@@ -31,7 +31,7 @@ public class PackageRestController {
 
         PackageDTO.ResponseDTO responseDTO = packageService.getPackage(id);
 
-        return ApiResponse.createSuccess(responseDTO);
+        return ApiResponse.createSuccess(responseDTO); // 공통 API를 반환하기 위한 ApiResponse 객체 사용
     }
 
 
@@ -41,7 +41,7 @@ public class PackageRestController {
 
         PackageDTO.ResponseDTOs responseDTOs = packageService.getPackages(offset, limit);
 
-        return ApiResponse.createSuccess(responseDTOs);
+        return ApiResponse.createSuccess(responseDTOs); // 공통 API를 반환하기 위한 ApiResponse 객체 사용
     }
 
 
@@ -51,15 +51,16 @@ public class PackageRestController {
 
         packageService.updatePackage(id, requestDTO);
 
-        return ApiResponse.createSuccessWithNoContent();
+        return ApiResponse.createSuccessWithNoContent(); // 공통 API를 반환하기 위한 ApiResponse 객체 사용
     }
 
-    @DeleteMapping("/daily/")
-    @ResponseStatus(HttpStatus.NO_CONTENT)
+
+    @DeleteMapping("/package/")
+    @ResponseStatus(HttpStatus.NO_CONTENT) // 각 HTTP Method에 맞는 HTTP 상태 코드 반환
     public ApiResponse<?> deletePackage(@PathVariable Long id) {
 
         packageService.deletePackage(id);
 
-        return ApiResponse.createSuccessWithNoContent();
+        return ApiResponse.createSuccessWithNoContent(); // 공통 API를 반환하기 위한 ApiResponse 객체 사용
     }
 }

@@ -13,6 +13,6 @@ public interface ImageJpaRepository extends JpaRepository<Image, Long> {
             "join fetch i.packageEntity " +
             "where i.packageEntity.id = :packageId " +
             "order by i.createdAt desc")
-    List<Image> findImagesByPackageId(Long packageId);
+    List<Image> findImagesByPackageId(Long packageId); // fetch join을 통해 쿼리를 최소화 하고자 하였습니다.
 
 }
